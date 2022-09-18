@@ -22,7 +22,7 @@ I2C_SDA = board.SDA
 
 LED_PIN_CI = board.A1
 LED_PIN_DI = board.A0
-IR_PIN = board.A3  # Pin connected to IR receiver.
+IR_PIN = board.A2  # Pin connected to IR receiver.
 
 LED_COLOUR_OFF = (0, 0, 0)
 LED_COLOUR_RED = (255, 0, 0)
