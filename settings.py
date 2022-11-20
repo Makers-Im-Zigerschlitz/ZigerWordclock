@@ -17,8 +17,11 @@ V 1.0
 
 NTP_OFFSET = 1 # GMT offset
 MODE = 'demo' # 'testing','wordclock' ,'demo'
+DISPLAY_MODE='rainbow' # 'normal','random', 'fancy','all_the_colours', 'rainbow'
 
 LIGHT_SENSOR = True
+IR_REMOTE = False
+
 I2C_SCL = board.SCL
 I2C_SDA = board.SDA
 
