@@ -5,6 +5,7 @@ import time
 import rtc
 import adafruit_dotstar
 import settings
+import colours
 import busio
 import supervisor
 import adafruit_ntp
@@ -29,7 +30,7 @@ def set_time():
     radio = wifi.radio
     radio.stop_station()
 
-    strip[words.WIFI] = settings.LED_COLOUR_BLUE
+    strip[words.WIFI] = colours.BLUE
     strip.show()
 
     radio.start_station()
@@ -37,10 +38,10 @@ def set_time():
     
     try:
         radio.connect(settings.SSID, settings.PWD,timeout=10.0)
-        strip[words.WIFI] = settings.LED_COLOUR_GREEN
+        strip[words.WIFI] = colours.GREEN
         strip.show()
     except ConnectionError as e:
-        strip[words.WIFI] = settings.LED_COLOUR_RED
+        strip[words.WIFI] = colours.RED
         strip.show()
         print(e)
         supervisor.reload()
@@ -58,7 +59,7 @@ def set_time():
     try:
         realtc.datetime = ntp.datetime
     except Exception as e:
-        strip[words.WIFI] = settings.LED_COLOUR_ORANGE
+        strip[words.WIFI] = colours.ORANGE
         strip.show()
         print(e)
         supervisor.reload()
@@ -82,11 +83,11 @@ def clear_clockface():
 def test_strip():
     for i in range(settings.LED_NUMBER):
         if i%10 == 0:
-            strip[i] = settings.LED_COLOUR_HOUR
+            strip[i] = settings.PALLETE[0]
         elif i%5 == 0:
-            strip[i] = settings.LED_COLOUR_MINUTE
+            strip[i] = settings.PALLETE[1]
         else:
-            strip[i] = settings.LED_COLOUR_TEXT
+            strip[i] = colours.rainbow(i)
     time.sleep(1)
     strip.show()
 
@@ -97,12 +98,12 @@ def set_clockface(h, m,):
         h += 1
     h = h % 12
     for i in words.HOURS[h]:
-        strip[i] = settings.LED_COLOUR_HOUR
+        strip[i] = settings.PALLETE[2]
 
     # Minuten (Worte)
     mins = int((m) / 5)
     for i in words.MINUTES[mins]:
-        strip[i] = settings.LED_COLOUR_MINUTE
+        strip[i] = settings.PALLETE[1]
 
     # Minuten (Punkte)
     mins = m % 5
@@ -128,6 +129,10 @@ def main():
     
     print(f"Clearing clockface")
     clear_clockface()
+    strip[words.MIZ[0]]=settings.PALLETE[0]
+    strip[words.MIZ[1]]=settings.PALLETE[1]
+    strip[words.MIZ[2]]=settings.PALLETE[2]
+    strip.show()
     set_time()
 
     print("selftest...")
