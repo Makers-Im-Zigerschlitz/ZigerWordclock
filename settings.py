@@ -14,7 +14,8 @@ BANNER = '''
 V 1.0
 '''
 
-TIMEZONE="Europe/Zurich"
+NTP_OFFSET = 1 # GMT offset
+MODE = 'demo' # 'testing','wordclock' ,'demo'
 
 LIGHT_SENSOR = True
 I2C_SCL = board.SCL

@@ -1,15 +1,14 @@
 import words
 import wifi
 import socketpool
-import adafruit_requests
 import time
 import rtc
-import ssl
 import adafruit_dotstar
 import settings
 import busio
 import supervisor
-
+import adafruit_ntp
+import random
 
 # time.localtime indices
 HOUR = 3
@@ -57,23 +56,11 @@ def set_time():
 
     print(f"Getting time from {time_URL}")
     try:
-        response = requests.get(time_URL)
+        realtc.datetime = ntp.datetime
     except Exception as e:
         strip[words.WIFI] = settings.LED_COLOUR_ORANGE
         strip.show()
         print(e)
-        supervisor.reload()
-
-    if response.status_code == 200:
-        realtc.datetime = time.localtime(response.json()['unixtime']
-                                    + response.json()['dst_offset']
-                                    + response.json()['raw_offset'])
-        print(f"System Time: {realtc.datetime}")
-    else:
-        print("Setting time failed")
-        strip[words.WIFI] = settings.LED_COLOUR_ORANGE
-        time.sleep(1)
-        strip.show()
         supervisor.reload()
 
     print("Switching off WiFi")
