@@ -231,7 +231,7 @@ def wordclock():
                     settings.DISPLAY_MODE = random.choice(['normal','random', 'fancy','all_the_colours'])
                     print(f'New displaymode: {settings.DISPLAY_MODE}')
                 if ch == 3:
-                    colours.rand_setup()
+                    colours.rand_colours()
                     print('Changed random colours')
                 
 

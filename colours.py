@@ -17,7 +17,7 @@ WHITE = (255, 255, 255)
 COLS = [RED,YELLOW,ORANGE,GREEN,TEAL,CYAN,BLUE,PURPLE,MAGENTA]
 RAND_COLS = []
 
-def rand_setup():
+def rand_colours():
     for i in range(126): #TODO
         RAND_COLS.append(random.choice(COLS))
 
@@ -55,4 +55,4 @@ PALLETE_AURORA=[PURPLE,TEAL,(0,255,60)]
 PALLETE_RANDOM=rand_pallete()
 PALS = [PALLETE_XMAS,PALLETE_AURORA,PALLETE_AUTUMN]
 
-rand_setup()
+rand_colours()
