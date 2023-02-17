@@ -1,8 +1,13 @@
+# pyright: reportMissingImports=false
+
 import board
 import colours
 
-SSID = "SSID"
-PWD = "password"
+#SSID = "CrazyCatHouse"
+#PWD = "FinjaLillyMinka"
+
+SSID = "Makerstation"
+PWD = "mizmakers"
 
 TIMEOUT = 10.0
 
@@ -15,12 +20,13 @@ BANNER = '''
 V 1.0
 '''
 
+TIMEZONE="Europe/Zurich"
 NTP_OFFSET = 1 # GMT offset
 MODE = 'demo' # 'testing','wordclock' ,'demo'
-DISPLAY_MODE='rainbow' # 'normal','random', 'fancy','all_the_colours', 'rainbow'
+DISPLAY_MODE='all_the_colours' # 'normal','random', 'fancy','all_the_colours', 'rainbow'
 
 LIGHT_SENSOR = True
-IR_REMOTE = False
+IR_REMOTE = True
 
 I2C_SCL = board.SCL
 I2C_SDA = board.SDA
@@ -34,5 +40,3 @@ PALLETE = colours.PALLETE_AUTUMN
 LED_MIN_BRIGHTNESS = 0.3
 LED_DEFAULT_BRIGHTNESS = .6
 LED_NUMBER = 126
-
- 
