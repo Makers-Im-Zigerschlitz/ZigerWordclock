@@ -41,6 +41,18 @@ def error(e,colour,word):
     time.sleep(1)
     supervisor.reload()
 
+def get_offset_by_ip():
+    # to implement
+    #
+    # IDEA: 
+    # 1. get json from http://worldtimeapi.org/api/ip
+    # 2. return "utc_offset" 
+    # 3. if it fails return the preset 
+    try:
+        return settings.NTP_OFFSET
+    except:
+        return settings.NTP_OFFSET
+
 def set_time():
     if TRACE:
         print("[function]: set_time()")
@@ -66,8 +78,12 @@ def set_time():
 
     pool = socketpool.SocketPool(wifi.radio)
 
+    if TRACE:
+        print("[set_time]: Getting utc offset from API")
+    utc_offset = get_offset_by_ip()
+
     print("[set_time]: Getting time from NTP")
-    ntp = adafruit_ntp.NTP(pool, tz_offset=1)
+    ntp = adafruit_ntp.NTP(pool, tz_offset=utc_offset)
     try:
         realtc.datetime = ntp.datetime
     except Exception as e:

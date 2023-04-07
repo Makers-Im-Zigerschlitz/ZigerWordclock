@@ -20,8 +20,9 @@ BANNER = '''
 V 1.0
 '''
 
-TIMEZONE="Europe/Zurich"
+# TIMEZONE="Europe/Zurich"
 NTP_OFFSET = 1 # GMT offset
+UTC_OFFSET_API = 'http://worldtimeapi.org/api/ip'
 MODE = 'wordclock' # 'testing','wordclock' ,'demo'
 DISPLAY_MODE='normal' # 'normal','random', 'fancy','all_the_colours', 'rainbow'
 
