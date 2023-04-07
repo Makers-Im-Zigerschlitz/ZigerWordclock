@@ -242,11 +242,11 @@ def wordclock():
             if hour == 3 and minute == 0 and second <= 10:
                 set_time()
 
-            if hour == 14 and minute == 40 and second <= 10:
-                settings.PALLETE = colours.PALLETE_AURORA
+            # if hour == 14 and minute == 40 and second <= 10:
+            #     settings.PALLETE = colours.PALLETE_AURORA
 
-            if hour == 16 and minute == 0 and second <= 10:
-                settings.PALLETE = colours.PALLETE_AUTUMN
+            # if hour == 16 and minute == 0 and second <= 10:
+            #     settings.PALLETE = colours.PALLETE_AUTUMN
 
             if settings.MODE == 'demo':
                 if second <=10:

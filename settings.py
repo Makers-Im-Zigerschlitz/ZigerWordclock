@@ -22,8 +22,8 @@ V 1.0
 
 TIMEZONE="Europe/Zurich"
 NTP_OFFSET = 1 # GMT offset
-MODE = 'demo' # 'testing','wordclock' ,'demo'
-DISPLAY_MODE='all_the_colours' # 'normal','random', 'fancy','all_the_colours', 'rainbow'
+MODE = 'wordclock' # 'testing','wordclock' ,'demo'
+DISPLAY_MODE='normal' # 'normal','random', 'fancy','all_the_colours', 'rainbow'
 
 LIGHT_SENSOR = True
 IR_REMOTE = True
@@ -35,7 +35,7 @@ LED_PIN_CI = board.A1
 LED_PIN_DI = board.A0
 IR_PIN = board.A2  # Pin connected to IR receiver.
 
-PALLETE = colours.PALLETE_AUTUMN
+PALLETE = colours.PALLETE_WHITE
 
 LED_MIN_BRIGHTNESS = 0.3
 LED_DEFAULT_BRIGHTNESS = .6
