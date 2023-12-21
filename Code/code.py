@@ -149,15 +149,20 @@ def run_clock():
     clockface.start_animation()
 
     get_dts_cet()
-    set_time()
+    if settings.OFFLINE:
+        set_manual_time(settings.OFFLINE_TIME[0], settings.OFFLINE_TIME[1], settings.OFFLINE_TIME[2],
+                        settings.OFFLINE_TIME[3], settings.OFFLINE_TIME[4], settings.OFFLINE_TIME[5])
+    else:
+        set_time()
 
     while True:
         try:
             hour, minute, second = get_simple_time()
 
-            if hour == 3 and minute == 00 and second <= 10:
+            if hour == settings.SYNCH_TIME and minute == 00 and second <= 10:
                 get_dts_cet()
-                set_time()
+                if not settings.OFFLINE:
+                    set_time()
 
             clockface.show(hour, minute, second, settings.DISPLAY_MODE)
             time.sleep(10)

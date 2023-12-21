@@ -19,7 +19,12 @@ V 2.0 alpha
 
 TRACE = False
 
+OFFLINE = False
+# (year, month, day, hours, minutes,seconds)
+OFFLINE_TIME = [2021, 1, 1, 0, 0, 0]
+SYNCH_TIME = 3  # Hour to synch time 3 = 3:00
 NTP_OFFSET = 1  # UTC offset
+
 MODE = 'demo'  # 'testing','clock' ,'demo'
 DISPLAY_MODE = 'random'  # 'normal','random', 'fancy','all_the_colours', 'rainbow'
 
