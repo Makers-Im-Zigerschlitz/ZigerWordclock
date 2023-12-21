@@ -1,12 +1,13 @@
-# ZigerWordclock
+# ZigerWordclock V2
 
-CircuitPython7 Sourcecode für unsere Wordclock.
+CircuitPython Sourcecode für unsere Wordclock.
 
 ## Dateien
 
-### settings.py
+### settings_ziger.py
 
-Einstellungen.
+Einstellungen für die Ziger-Wort-Uhr.
+Muss umbenannt werden in `settings.py`
 
 Hier lassen sich Zeitzone, Farben, Microcontrollerpins und ähnliches einstellen.
 
@@ -17,9 +18,13 @@ Hauptprogramm.
 Beim einschalten verbindet sich die Wordclock kurz über WLAN zu http://worldtimeapi.org/ und holt sich die Zeit für die eingestellte Zeitzone.
 Danach wird Wifi ausgeschaltet und und die Zeit im RTC, des Microcontroller gespeichert. Alle 10 Sekunden wird die Zeit aus dem RTC gelesen und die LEDs entsprechend ein- oder ausgeschaltet.
 
-### words.py
+## ziger_wordclock.py
 
-Die LED-Nummern für die verschiedenen Worte.
+Enthält die Implementation der eigentlichen Ziger-Wort-Uhr.
+
+## ringclock.py
+
+Enthält eine Implementation einer Uhr mit einem 60 LED langen Neopixelring. (WIP)
 
 ## Tools
 
