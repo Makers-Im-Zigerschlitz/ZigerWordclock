@@ -15,8 +15,10 @@ Hier lassen sich Zeitzone, Farben, Microcontrollerpins und ähnliches einstellen
 
 Hauptprogramm.
 
-Beim einschalten verbindet sich die Wordclock kurz über WLAN zu http://worldtimeapi.org/ und holt sich die Zeit für die eingestellte Zeitzone.
-Danach wird Wifi ausgeschaltet und und die Zeit im RTC, des Microcontroller gespeichert. Alle 10 Sekunden wird die Zeit aus dem RTC gelesen und die LEDs entsprechend ein- oder ausgeschaltet.
+Beim Einschalten verbindet sich die Wordclock kurz über WLAN über ntp die Zeit zu holen.
+Danach wird Wifi ausgeschaltet und und die Zeit im RTC des Microcontroller gespeichert.
+Alle 10 Sekunden wird die Zeit aus dem RTC gelesen und die LEDs entsprechend ein- oder ausgeschaltet.
+Immer um die im `settings.py` bei `SYNCH_TIME` angegebene Zeit wird wieder versucht über WiFi die Zeit zu synchronisieren und ausserdem geprüft ob Sommer- oder Winterzeit ist.
 
 ## ziger_wordclock.py
 
